@@ -13,6 +13,14 @@ import random
 from PyQt4 import QtGui, uic
 from PyQt4.phonon import Phonon
 
+import sys
+sys.path.append("./PersonAttribute/")
+sys.path.append('./PersonDetection/')
+sys.path.append("./PersonReID/")
+
+from PersonDetection.Detector import PedestrianDetectionResultDTO,PedestrianDetector
+from PersonAttribute.PAR_sdk import PedestrianAtrributeRecognizer
+
 attr_map = {0:["所有","男性","女性"],
             1:["所有","短发","长发"],
             2:["所有","长袖","短袖"],
