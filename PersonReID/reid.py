@@ -58,7 +58,7 @@ class ReID():
         self.args.gpu_devices = '0'
         self.args.test_batch = 100
         self.args.root = './'
-        self.args.model_weight = './log/reid-model.pth.tar'
+        self.args.model_weight = './PersonReID/log/reid-model.pth.tar'
         self.args.height = 256
         self.args.width = 128
         self.args.dist_metric = 'cosine'

@@ -36,7 +36,7 @@ def locate_cuda():
     # first check if the CUDAHOME env variable is in use
     if 'CUDAHOME' in os.environ:
         home = os.environ['CUDAHOME']
-        nvcc = pjoin(home, 'bin', 'nvcc.exe')
+        nvcc = pjoin(home, 'bin', 'nvcc')
     else:
         # otherwise, search the PATH for NVCC
         default_path = pjoin(os.sep, 'usr', 'local', 'cuda', 'bin')
@@ -48,7 +48,7 @@ def locate_cuda():
 
     cudaconfig = {'home': home, 'nvcc': nvcc,
                   'include': pjoin(home, 'include'),
-                  'lib64': pjoin(home, 'lib')}
+                  'lib64': pjoin(home, 'lib64')}
     for k, v in cudaconfig.items():
         if not os.path.exists(v):
             raise EnvironmentError('The CUDA %s path could not be located in %s' % (k, v))
@@ -79,7 +79,7 @@ def customize_compiler_for_nvcc(self):
     self.src_extensions.append('.cu')
 
     # save references to the default compiler_so and _comple methods
-    #default_compiler_so = self.compiler_so
+    default_compiler_so = self.compiler_so
     super = self._compile
 
     # now redefine the _compile method. This gets executed for each
@@ -98,7 +98,7 @@ def customize_compiler_for_nvcc(self):
 
         super(obj, src, ext, cc_args, postargs, pp_opts)
         # reset the default compiler_so, which we might have changed for cuda
-        #self.compiler_so = default_compiler_so
+        self.compiler_so = default_compiler_so
 
     # inject our redefined _compile method into the class
     self._compile = _compile

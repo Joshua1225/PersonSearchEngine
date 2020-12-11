@@ -1,18 +1,18 @@
 import cv2
 import sys
-sys.path.append('./pedestrain_detection/')
-sys.path.append('./PAR/')
+sys.path.append('./PersonDetection/')
+sys.path.append('./PersonAttribute/')
 
-from pedestrain_detection.Detector import PedestrianDetector, PedestrianDetectionResultDTO
-from PAR.PAR_sdk import PedestrianAtrributeRecognizer
+from PersonDetection.Detector import PedestrianDetector, PedestrianDetectionResultDTO
+from PersonAttribute.PAR_sdk import PedestrianAtrributeRecognizer
 
 if __name__ == '__main__':
-    detector = PedestrianDetector('./pedestrain_detection/weights/epoches_112.pth', cuda=True, cpu=False)
-    img = cv2.imread('./pedestrain_detection/images/1.jpg')
+    detector = PedestrianDetector('./PersonDetection/weights/epoches_112.pth', cuda=True, cpu=False)
+    img = cv2.imread('./PersonDetection/images/1.jpg')
     pdrDTO = detector.detect(img)
     img_list = pdrDTO.get_img_list()
     
-    model = PedestrianAtrributeRecognizer('./PAR/checkpoints/market/resnet50_nfc/net_last.pth')
+    model = PedestrianAtrributeRecognizer('./PersonAttribute/checkpoints/market/resnet50_nfc/net_last.pth')
     model.infer_img_list(img_list)
     
     
