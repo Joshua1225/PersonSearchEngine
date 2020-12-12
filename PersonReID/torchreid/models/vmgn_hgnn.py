@@ -2,8 +2,8 @@ from __future__ import absolute_import
 from __future__ import division
 import math
 from torch.nn.parameter import Parameter
-from reid_sdk.HGNN import HGNN_conv
-from reid_sdk.HGNN import construct_H_with_KNN, generate_G_from_H
+from PersonReID.HGNN import HGNN_conv
+from PersonReID.HGNN import construct_H_with_KNN, generate_G_from_H
 
 __all__ = ['vmgn_hgnn']
 
@@ -13,8 +13,8 @@ from torch import nn
 from torch.nn import functional as F
 import torch.utils.model_zoo as model_zoo
 
-from reid_sdk.torchreid.utils.reidtools import calc_splits
-from reid_sdk.torchreid.utils.torchtools import weights_init_kaiming, weights_init_classifier
+from PersonReID.torchreid.utils.reidtools import calc_splits
+from PersonReID.torchreid.utils.torchtools import weights_init_kaiming, weights_init_classifier
 
 model_urls = {
     'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth',

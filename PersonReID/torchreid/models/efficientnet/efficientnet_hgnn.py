@@ -25,8 +25,8 @@ from .utils import (
     weights_init_kaiming,
     weights_init_classifier
 )
-from reid_sdk.HGNN import HGNN_conv
-from reid_sdk.HGNN import construct_H_with_KNN, generate_G_from_H
+from PersonReID.HGNN import HGNN_conv
+from PersonReID.HGNN import construct_H_with_KNN, generate_G_from_H
 
 VALID_MODELS = (
     'efficientnet-b0', 'efficientnet-b1', 'efficientnet-b2', 'efficientnet-b3',

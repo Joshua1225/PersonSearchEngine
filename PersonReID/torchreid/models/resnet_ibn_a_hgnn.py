@@ -3,8 +3,8 @@ import torch.nn as nn
 import math
 import copy
 import torch.utils.model_zoo as model_zoo
-from reid_sdk.HGNN import HGNN_conv
-from reid_sdk.HGNN import construct_H_with_KNN, generate_G_from_H
+from PersonReID.HGNN import HGNN_conv
+from PersonReID.HGNN import construct_H_with_KNN, generate_G_from_H
 
 __all__ = ['ResNet_IBN', 'resnet50_ibn_a', 'resnet101_ibn_a',
            'resnet152_ibn_a']

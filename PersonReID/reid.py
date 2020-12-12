@@ -3,11 +3,13 @@ import torch
 import numpy as np
 from PIL import Image
 import torch.nn as nn
+from torch.nn import functional as F
 import torch.backends.cudnn as cudnn
 
 from PersonReID.torchreid import transforms as T
 from PersonReID.torchreid import models
 from PersonReID.reid_config import config as conf
+
 
 class ReID():
     def __init__(self, training=False):
@@ -79,19 +81,65 @@ class ReID():
             features = features.data.cpu()
         return features
 
+    def verify_pair(self, img1, img2):
+        '''
+        :param img1: np array
+        :param img2: np array
+        :return: bool
+        '''
+
+        threshold = 0.4
+
+        def cosine_distance(input1, input2):
+            """Computes cosine distance for tensor.
+
+            Args:
+                input1 (torch.Tensor): 2-D feature matrix.
+                input2 (torch.Tensor): 2-D feature matrix.
+
+            Returns:
+                torch.Tensor: distance matrix.
+            """
+            input1_normed = F.normalize(input1, p=2, dim=1)
+            input2_normed = F.normalize(input2, p=2, dim=1)
+            distmat = 1 - torch.mm(input1_normed, input2_normed.t())
+            return distmat
+
+        imgs = []
+        im = Image.fromarray(img1)
+        img = self.transform_test(im)
+        imgs.append(img)
+        imgs = torch.stack(imgs)
+        features_1 = self.cal_features(imgs)
+
+
+        imgs = []
+        im = Image.fromarray(img2)
+        img = self.transform_test(im)
+        imgs.append(img)
+        imgs = torch.stack(imgs)
+        features_2 = self.cal_features(imgs)
+
+        distance = np.array(cosine_distance(features_1, features_2))[0][0]
+        # print(str(distance))
+
+        if distance < threshold:
+            return True
+        else:
+            return False
 
 if __name__ == '__main__':
     # read the img_list.npy
     img_list = np.load('img_list.npy')
     img_list = img_list.tolist()
 
-    reid = ReID()
+    self = ReID()
 
     imgs = []
     for item in img_list:
         img = Image.fromarray(item)
-        img = reid.transform_test(img)
+        img = self.transform_test(img)
         imgs.append(img)
     imgs = torch.stack(imgs)
 
-    features = reid.cal_features(imgs)
+    features = self.cal_features(imgs)

@@ -6,6 +6,61 @@ import torch
 import json
 
 
+class predict_decoder(object):
+
+    def __init__(self, dataset):
+        with open('./PersonAttribute/doc/label.json', 'r') as f:
+            self.label_list = json.load(f)[dataset]
+        with open('./PersonAttribute/doc/attribute.json', 'r') as f:
+            self.attribute_dict = json.load(f)[dataset]
+        self.dataset = dataset
+        self.num_label = len(self.label_list)
+
+    def decode(self, pred):
+        '''
+
+        :param pred:
+        :return:
+        {
+        "age":"young","teenager","adult","old",
+        "carrying backpack":"yes","no"
+        "carrying bag":"yes","no"
+        "length of lower-body clothing": "long lower body clothing","short"
+        "sleeve length":"long sleeve","short sleeve"
+        "type of lower-body clothing": "dress","pants"
+        "color of upper-body clothing"
+        "color of lower-body clothing"
+        "hair length": "short hair","long hair"
+        "wearing hat":"yes","no"
+        "gender":"male","female"
+        }
+        '''
+
+        pred = pred.squeeze(dim=0)
+        attr_list = ["gender",
+                     "hair length",
+                     "sleeve length",
+                     "length of lower-body clothing",
+                     "type of lower-body clothing",
+                     "wearing hat",
+                     "carrying backpack",
+                     "carrying bag",
+                     "carrying handbag",
+                     "age",
+                     "color of upper-body clothing",
+                     "color of lower-body clothing"]
+        attr = {}
+        for idx in range(self.num_label):
+            name, chooce = self.attribute_dict[self.label_list[idx]]
+            if chooce[pred[idx]]:
+                attr[name] = chooce[pred[idx]]
+                # print('{}: {}'.format(name, chooce[pred[idx]]))
+        for a in attr_list:
+            if a not in attr:
+                attr[a] = "unknown"
+        return attr
+
+
 class PedestrianAtrributeRecognizer(object):
     dataset_dict = {
         'market': 'Market-1501',
@@ -32,23 +87,6 @@ class PedestrianAtrributeRecognizer(object):
         print('Resume model from {}'.format(weigth_path))
         self.model.eval()
 
-    class predict_decoder(object):
-
-        def __init__(self, dataset):
-            with open('./PAR/doc/label.json', 'r') as f:
-                self.label_list = json.load(f)[dataset]
-            with open('./PAR/doc/attribute.json', 'r') as f:
-                self.attribute_dict = json.load(f)[dataset]
-            self.dataset = dataset
-            self.num_label = len(self.label_list)
-
-        def decode(self, pred):
-            pred = pred.squeeze(dim=0)
-            for idx in range(self.num_label):
-                name, chooce = self.attribute_dict[self.label_list[idx]]
-                if chooce[pred[idx]]:
-                    print('{}: {}'.format(name, chooce[pred[idx]]))
-
     def infer(self, image_path):
         def load_image(path):
             src = Image.open(path)
@@ -57,13 +95,17 @@ class PedestrianAtrributeRecognizer(object):
             return src
 
         src = load_image(image_path)
-        out = model.forward(src)
+        out = self.model.forward(src)
         pred = torch.gt(out, torch.ones_like(out) / 2)  # threshold=0.5
 
-        Dec = predict_decoder(self.dataset)
-        Dec.decode(pred)
+        dec = predict_decoder(self.dataset)
+        return dec.decode(pred)
 
     def infer_img_list(self, img_list):
+        attrs = []
+
+        dec = predict_decoder(self.dataset)
+
         for nd in img_list:
             img = Image.fromarray(nd)
             img = self.transforms(img).unsqueeze(dim=0)
@@ -71,8 +113,8 @@ class PedestrianAtrributeRecognizer(object):
             out = self.model.forward(img)
             pred = torch.gt(out, torch.ones_like(out) / 2)  # threshold=0.5
 
-            Dec = self.predict_decoder(self.dataset)
-            Dec.decode(pred)
+            attrs.append(dec.decode(pred))
+        return attrs
 
 
 '''
