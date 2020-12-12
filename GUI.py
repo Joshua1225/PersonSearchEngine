@@ -49,7 +49,10 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
         self.init_comboBox()
 
         # init the model and parameters, unfinished!
+        self.person_detector = PedestrianDetector()
+        self.person_recognizer = PedestrianAtrributeRecognizer()
 
+:
         # trigger the funtion when clicking the button
         self.load_image_button.clicked.connect(self.load_image)  # when clicking load_image_button trigger the function "load_image"
         self.load_video_button.clicked.connect(self.load_video)  # when clicking load_video_button trigger the function "load_video"

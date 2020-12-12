@@ -1,3 +1,5 @@
-.idea/
-*.pth
-*.pyc
+.tmp
+.idea/*
+*pyc
+PersonReID/log/
+PersonAttribute/checkpoints/market/resnet50_nfc/*pth

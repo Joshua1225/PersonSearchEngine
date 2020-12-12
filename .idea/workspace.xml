@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee9b3a5-d81e-4b54-8e9b-6d18c9ecd22a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PersonSearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PersonSearch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/Detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/Detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/data/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/data/data_augment.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/data/data_augment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/data/voc0712.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/data/voc0712.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/data/voc_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/data/voc_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/layers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/layers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/layers/functions/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/layers/functions/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/layers/functions/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/layers/functions/detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/layers/functions/prior_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/layers/functions/prior_box.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/layers/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/layers/modules/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/layers/modules/multibox_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/layers/modules/multibox_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/make.sh" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/make.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/models/RFB_Net_vgg.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/models/RFB_Net_vgg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PersonDetection/models/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/PersonDetection/models/module.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,44 +29,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1587247661">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="md" value="1" />
-          <entry key="py" value="8" />
-          <entry key="sh" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Python Console" value="50" />
-          <entry key="py" value="185" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="235" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -202,6 +150,7 @@
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectId" id="1lY12FeUk0L5sQzmJO5DcOgu86D" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -246,24 +195,18 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -294,6 +237,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -304,6 +248,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607488550444</updated>
+      <workItem from="1607759004779" duration="274000" />
     </task>
     <servers />
   </component>
@@ -343,13 +288,16 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PersonSearch$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1607759045362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-378668981/sys.py">
+    <entry file="file://$PROJECT_DIR$/../.PyCharm2018.2/system/python_stubs/-378668981/sys.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9747">
           <caret line="513" selection-start-line="513" selection-end-line="513" />
